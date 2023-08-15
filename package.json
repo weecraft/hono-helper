@@ -1,6 +1,6 @@
 {
   "name": "nitric-helper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The useful nitric.io helper",
   "module": "dist/nitric-helper.esm.js",
   "author": "Nyoman Sunima",
@@ -34,11 +34,10 @@
   "devDependencies": {
     "tsdx": "^0.14.1",
     "tslib": "^2.6.1",
-    "typescript": "^3.9.10"
-  },
-  "dependencies": {
+    "typescript": "^3.9.10",
     "class-validator": "^0.14.0"
   },
+  "dependencies": {},
   "peerDependencies": {
     "class-validator": "0.14.0"
   }
