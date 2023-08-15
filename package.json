@@ -1,1 +1,43 @@
-{"version":"0.1.0","license":"MIT","main":"dist/index.js","typings":"dist/index.d.ts","files":["dist","src"],"engines":{"node":">=10"},"scripts":{"start":"tsdx watch","build":"tsdx build","test":"tsdx test","lint":"tsdx lint","prepare":"tsdx build","size":"size-limit","analyze":"size-limit --why"},"husky":{"hooks":{"pre-commit":"tsdx lint"}},"prettier":{"printWidth":80,"semi":true,"singleQuote":true,"trailingComma":"es5"},"name":"nitric-helper","author":"Nyoman Sunima","module":"dist/nitric-helper.esm.js","size-limit":[{"path":"dist/nitric-helper.cjs.production.min.js","limit":"10 KB"},{"path":"dist/nitric-helper.esm.js","limit":"10 KB"}],"devDependencies":{"@size-limit/preset-small-lib":"^8.2.6","husky":"^8.0.3","size-limit":"^8.2.6","tsdx":"^0.14.1","tslib":"^2.6.1","typescript":"^3.9.10"}}
+{
+  "name": "nitric-helper",
+  "version": "1.0.0",
+  "description": "The useful nitric.io helper",
+  "module": "dist/nitric-helper.esm.js",
+  "author": "Nyoman Sunima",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "keywords": [
+    "helper",
+    "nitric.io",
+    "nitric",
+    "api",
+    "validator",
+    "middleware"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
+  },
+  "devDependencies": {
+    "tsdx": "^0.14.1",
+    "tslib": "^2.6.1",
+    "typescript": "^3.9.10"
+  },
+  "dependencies": {
+    "class-validator": "^0.14.0"
+  },
+  "peerDependencies": {
+    "class-validator": "0.14.0"
+  }
+}
