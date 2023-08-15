@@ -25,7 +25,7 @@ export function validationMiddleware<T extends object>(
 
     const dtoInstance = new dtoClass()
     const requestBody = {
-      body: req.body,
+      body: req.json(),
       query: req.query,
       params: req.params,
     }

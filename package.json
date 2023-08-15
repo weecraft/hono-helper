@@ -1,6 +1,6 @@
 {
   "name": "nitric-helper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The useful nitric.io helper",
   "module": "dist/nitric-helper.esm.js",
   "author": "Nyoman Sunima",
@@ -8,8 +8,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">=14"
