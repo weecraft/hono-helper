@@ -10,14 +10,19 @@ import { HttpErrorException } from './http-exception'
  * @returns {ctx}
  */
 export function apiHandler(fallbackFunction: any) {
-  return async (ctx: any) => {
+  return async (ctx: any, next: any) => {
     try {
       // get the initial data from the given fallback
       // allow to infer all of the function to running
       // then pass the response as json to api
-      const data = await fallbackFunction(ctx)
-      ctx.res.json(data)
-      return ctx
+      const returnedData = await fallbackFunction(ctx, next)
+
+      if (returnedData && typeof returnedData !== typeof ctx) {
+        ctx.res.json(returnedData)
+        return ctx
+      }
+
+      return await next(ctx)
     } catch (err) {
       // catch some error
       // then spread it into a custom error http exception
