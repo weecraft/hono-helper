@@ -17,12 +17,12 @@ export function apiHandler(fallbackFunction: any) {
       // then pass the response as json to api
       const returnedData = await fallbackFunction(ctx, next)
 
-      if (returnedData && typeof returnedData !== typeof ctx) {
-        ctx.res.json(returnedData)
-        return ctx
+      if (returnedData && returnedData.request && returnedData.response) {
+        return await next(ctx)
       }
 
-      return await next(ctx)
+      ctx.res.json(returnedData)
+      return ctx
     } catch (err) {
       // catch some error
       // then spread it into a custom error http exception
