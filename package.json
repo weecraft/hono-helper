@@ -32,12 +32,14 @@
     "prepare": "tsdx build"
   },
   "devDependencies": {
+    "class-validator": "^0.14.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.6.1",
-    "typescript": "^3.9.10",
-    "class-validator": "^0.14.0"
+    "typescript": "^3.9.10"
   },
-  "dependencies": {},
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  },
   "peerDependencies": {
     "class-validator": "0.14.0"
   }
