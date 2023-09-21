@@ -1,8 +1,8 @@
 {
-  "name": "nitric-helper",
-  "version": "1.0.8",
-  "description": "The useful nitric.io helper",
-  "module": "dist/nitric-helper.esm.js",
+  "name": "hono-helper",
+  "version": "1.0.0",
+  "description": "Utility helper to honojs",
+  "module": "dist/hono-helper.esm.js",
   "author": "Nyoman Sunima",
   "license": "MIT",
   "main": "dist/index.js",
@@ -18,8 +18,9 @@
   },
   "keywords": [
     "helper",
-    "nitric.io",
-    "nitric",
+    "hono.dev",
+    "honojs",
+    "hono",
     "api",
     "validator",
     "middleware"
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "class-validator": "^0.14.0",
+    "hono": "^3.7.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.6.1",
     "typescript": "^3.9.10"
@@ -41,6 +43,7 @@
     "reflect-metadata": "^0.1.13"
   },
   "peerDependencies": {
-    "class-validator": "0.14.0"
+    "class-validator": "0.14.0",
+    "hono": "^3.7.0"
   }
 }

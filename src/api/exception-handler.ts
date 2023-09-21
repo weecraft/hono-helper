@@ -1,27 +1,33 @@
+import { Context, Next } from 'hono'
 import { HttpErrorException } from './http-exception'
 
+type FallBackFunctionReturnType = (
+  ctx?: Context,
+  next?: Next,
+) => Promise<Context>
+
 /**
- * ## apiHandler
+ * ## handleException
  *
  * allow to handle the api call
  * and manage the resource and throw into a response api
  *
  * @param fallbackFunction function to handle and return something
- * @returns {ctx}
+ * @returns {Context}
  */
-export function apiHandler(fallbackFunction: any) {
-  return async (ctx: any, next: any) => {
+export function exceptionHandler(fallbackFunction: FallBackFunctionReturnType) {
+  return async (ctx: Context, next: Next) => {
     try {
       // get the initial data from the given fallback
       // allow to infer all of the function to running
       // then pass the response as json to api
       const returnedData = await fallbackFunction(ctx, next)
 
-      if (returnedData && returnedData.request && returnedData.response) {
-        return await next(ctx)
+      if (returnedData && returnedData.req && returnedData.res) {
+        return await next()
       }
 
-      ctx.res.json(returnedData)
+      ctx.json(returnedData)
       return ctx
     } catch (err) {
       // catch some error
@@ -29,8 +35,8 @@ export function apiHandler(fallbackFunction: any) {
       // this will work with custom http exceptions
       const { message, statusCode, description } = err as HttpErrorException
 
-      ctx.res.status = statusCode
-      ctx.res.json({ message, error: description, statusCode })
+      ctx.status(statusCode)
+      ctx.json({ message, error: description, statusCode })
       return ctx
     }
   }

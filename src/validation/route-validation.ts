@@ -1,4 +1,5 @@
 import { ValidationError, validate } from 'class-validator'
+import { Context, Next } from 'hono'
 
 /**
  * ## validationMiddleware
@@ -12,22 +13,18 @@ import { ValidationError, validate } from 'class-validator'
  * @param dtoClass the class that include validation that contain `class-validator` validation
  * @param body request data that need to validate as object. eg `params`, `body`, `paths`
  *
- * @returns {ctx}
+ * @returns {Context | Next}
  */
 export function validationMiddleware<T extends object>(
   dtoClass: new () => T,
-  body: string,
+  body: 'body' | 'params' | 'paths' | 'query',
 ) {
-  return async (ctx: any, next: any) => {
-    // spread all of the api context
-    // capability
-    const { req, res } = ctx
-
+  return async (ctx: Context, next: Next) => {
     const dtoInstance = new dtoClass()
     const requestBody = {
-      body: req.json(),
-      query: req.query,
-      params: req.params,
+      body: await ctx.req.json(),
+      query: ctx.req.query(),
+      params: ctx.req.param(),
     }
 
     Object.assign(dtoInstance, requestBody[body])
@@ -52,15 +49,12 @@ export function validationMiddleware<T extends object>(
       const errorMessage = 'validation/invalid-input'
       const errorResponse = { message: errorMessage, errors: validationErrors }
 
-      res.status = 422
-      res.json(errorResponse)
-
+      ctx.status(422)
+      ctx.json(errorResponse)
       return ctx
     }
 
-    // pass the error
-    // everything working fine
-    return await next(ctx)
+    return await next()
   }
 }
 
