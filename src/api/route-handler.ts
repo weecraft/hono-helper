@@ -7,7 +7,7 @@ type FallBackFunctionReturnType = (
 ) => Promise<Context>
 
 /**
- * ## handleException
+ * ## routeHandler
  *
  * allow to handle the api call
  * and manage the resource and throw into a response api
@@ -15,7 +15,7 @@ type FallBackFunctionReturnType = (
  * @param fallbackFunction function to handle and return something
  * @returns {Context}
  */
-export function exceptionHandler(fallbackFunction: FallBackFunctionReturnType) {
+export function routeHandler(fallbackFunction: FallBackFunctionReturnType) {
   return async (ctx: Context, next: Next) => {
     try {
       // get the initial data from the given fallback

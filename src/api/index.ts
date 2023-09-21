@@ -1,2 +1,2 @@
-export * from './exception-handler'
+export * from './route-handler'
 export * from './http-exception'
