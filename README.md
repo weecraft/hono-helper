@@ -1,103 +1,45 @@
-# TSDX User Guide
+<!-- README -->
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+![Hono Helper banner](https://github.com/nyomansunima/hono-helper/assets/54091887/20b4f3e1-611c-460b-a898-27f464253105)
 
-> This TSDX setup is meant for developing libraries (not apps!) that can be published to NPM. If you’re looking to build a Node app, you could use `ts-node-dev`, plain `ts-node`, or simple `tsc`.
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/nyomansunima/hono-helper)
+![GitHub Sponsors](https://img.shields.io/github/sponsors/nyomansunima)
+![GitHub](https://img.shields.io/github/license/nyomansunima/hono-helper)
+![GitHub issues](https://img.shields.io/github/issues/nyomansunima/hono-helper)
 
-> If you’re new to TypeScript, checkout [this handy cheatsheet](https://devhints.io/typescript)
+<br/>
 
-## Commands
+[🐛 Issues](https://github.com/nyomansunima/hono-helper/issues) . [📝 Explore docs](https://github.com/nyomansunima/hono-helper)
 
-TSDX scaffolds your new library inside `/src`.
+# Hono Helper - Utility helper to hono.dev
 
-To run TSDX, use:
+The Hono.dev Helper project is born out of the need for simplifying and enhancing the development experience for those working with Eclipse Hono, an open-source IoT messaging project. Eclipse Hono provides a scalable and reliable platform for connecting and managing IoT devices, but developers often encounter challenges related to handling exceptions, validation, and custom mapping of data types. This project aims to alleviate these pain points by providing a set of tools and utilities to streamline Hono development.
 
-```bash
-npm start # or yarn start
-```
+## Features
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+This project is contain buch of feature included to help me support my workflow
 
-To do a one-off build, use `npm run build` or `yarn build`.
+- Custom exception - Throw everything into class error
+- apiHandler - return only object not the context
+- Type validation - Validate the body, params, and query using class validator
+- Mapped type to omit, partial and so on
 
-To run tests, use `npm test` or `yarn test`.
+## Stacks
 
-## Configuration
+Since building this project here are list about stack, site, tech and any library in this project
 
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
+- [Hono](https://hono.dev)
+- [Class Validator](https://github.com/typestack/class-validator)
+- [Class Transformer](https://github.com/typestack/class-transformer)
 
-### Jest
+## Roadmap
 
-Jest tests are set up to run with `npm test` or `yarn test`.
+All about the task, issues, and roadmap for this projec you can find it on Project Section.
 
-### Bundle Analysis
+## License
 
-[`size-limit`](https://github.com/ai/size-limit) is set up to calculate the real cost of your library with `npm run size` and visualize the bundle with `npm run analyze`.
+This project is maintain under the [MIT License](./LICENSE). Please read how to use this project.
 
-#### Setup Files
+## Thanks
 
-This is the folder structure we set up for you:
-
-```txt
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
-```
-
-### Rollup
-
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
-
-### TypeScript
-
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
-
-## Continuous Integration
-
-### GitHub Actions
-
-Two actions are added by default:
-
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo')
-}
-```
-
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
-
-## Module Formats
-
-CJS, ESModules, and UMD module formats are supported.
-
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
-
-## Named Exports
-
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
-
-## Including Styles
-
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
-
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using [np](https://github.com/sindresorhus/np).
+Thanks to read this project documentation.
