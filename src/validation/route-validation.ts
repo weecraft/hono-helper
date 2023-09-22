@@ -1,6 +1,5 @@
 import { ValidationError, validate } from 'class-validator'
 import { Context, Next } from 'hono'
-import { H } from 'hono/dist/types/types'
 
 /**
  * ## validationMiddleware
@@ -19,7 +18,7 @@ import { H } from 'hono/dist/types/types'
 export function validationMiddleware<T extends object>(
   dtoClass: new () => T,
   body: 'body' | 'params' | 'query',
-): H {
+): any {
   return async (ctx: Context, next: Next) => {
     const dtoInstance = new dtoClass()
     const requestBody = {

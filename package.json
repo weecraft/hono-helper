@@ -1,8 +1,7 @@
 {
   "name": "hono-helper",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Utility helper to honojs",
-  "module": "dist/hono-helper.esm.js",
   "author": "Nyoman Sunima",
   "license": "MIT",
   "main": "dist/index.js",
@@ -16,6 +15,14 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nyomansunima/hono-helper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nyomansunima/hono-helper/issues"
+  },
+  "homepage": "https://github.com/nyomansunima/hono-helper",
   "keywords": [
     "helper",
     "hono.dev",
@@ -33,6 +40,7 @@
     "prepare": "tsdx build"
   },
   "devDependencies": {
+    "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "hono": "^3.7.0",
     "tsdx": "^0.14.1",
@@ -44,6 +52,7 @@
   },
   "peerDependencies": {
     "class-validator": "0.14.0",
+    "class-transformer": "^0.5.1",
     "hono": "^3.7.0"
   }
 }

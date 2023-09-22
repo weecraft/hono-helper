@@ -1,6 +1,5 @@
 import { Context, Next } from 'hono'
 import { HttpErrorException } from './http-exception'
-import { H } from 'hono/dist/types/types'
 
 type FallBackFunctionReturnType = (
   ctx: Context,
@@ -16,7 +15,9 @@ type FallBackFunctionReturnType = (
  * @param fallbackFunction function to handle and return something
  * @returns {Context}
  */
-export function routeHandler(fallbackFunction: FallBackFunctionReturnType): H {
+export function routeHandler(
+  fallbackFunction: FallBackFunctionReturnType,
+): any {
   return async (ctx: Context, next: Next) => {
     try {
       // get the initial data from the given fallback
