@@ -1,10 +1,11 @@
-import { Context, Next } from 'hono'
+import { Context, Hono, Next } from 'hono'
 import { HttpErrorException } from './http-exception'
+import { H } from 'hono/dist/types/types'
 
 type FallBackFunctionReturnType = (
   ctx?: Context,
   next?: Next,
-) => Promise<Context>
+) => Promise<void | Context | any> | (void | Context | any)
 
 /**
  * ## routeHandler
@@ -15,7 +16,7 @@ type FallBackFunctionReturnType = (
  * @param fallbackFunction function to handle and return something
  * @returns {Context}
  */
-export function routeHandler(fallbackFunction: FallBackFunctionReturnType) {
+export function routeHandler(fallbackFunction: FallBackFunctionReturnType): H {
   return async (ctx: Context, next: Next) => {
     try {
       // get the initial data from the given fallback
@@ -27,17 +28,14 @@ export function routeHandler(fallbackFunction: FallBackFunctionReturnType) {
         return await next()
       }
 
-      ctx.json(returnedData)
-      return ctx
+      return ctx.json(returnedData)
     } catch (err) {
       // catch some error
       // then spread it into a custom error http exception
       // this will work with custom http exceptions
       const { message, statusCode, description } = err as HttpErrorException
-
       ctx.status(statusCode)
-      ctx.json({ message, error: description, statusCode })
-      return ctx
+      return ctx.json({ message, error: description, statusCode })
     }
   }
 }
