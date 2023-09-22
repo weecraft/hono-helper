@@ -3,8 +3,8 @@ import { HttpErrorException } from './http-exception'
 import { H } from 'hono/dist/types/types'
 
 type FallBackFunctionReturnType = (
-  ctx?: Context,
-  next?: Next,
+  ctx: Context,
+  next: Next,
 ) => Promise<void | Context | any> | (void | Context | any)
 
 /**

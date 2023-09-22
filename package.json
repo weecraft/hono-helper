@@ -1,6 +1,6 @@
 {
   "name": "hono-helper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Utility helper to honojs",
   "module": "dist/hono-helper.esm.js",
   "author": "Nyoman Sunima",
