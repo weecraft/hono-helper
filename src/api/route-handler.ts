@@ -1,4 +1,4 @@
-import { Context, Hono, Next } from 'hono'
+import { Context, Next } from 'hono'
 import { HttpErrorException } from './http-exception'
 import { H } from 'hono/dist/types/types'
 
