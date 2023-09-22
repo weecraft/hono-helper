@@ -1,8 +1,9 @@
 {
   "name": "hono-helper",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Utility helper to honojs",
   "author": "Nyoman Sunima",
+  "module": "dist/hono-helper.esm.js",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -40,15 +41,15 @@
     "prepare": "tsdx build"
   },
   "devDependencies": {
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.14.0",
     "hono": "^3.7.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.6.1",
     "typescript": "^3.9.10"
   },
   "dependencies": {
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0"
   },
   "peerDependencies": {
     "class-validator": "0.14.0",
