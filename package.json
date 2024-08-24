@@ -41,7 +41,7 @@
     "prepare": "tsdx build"
   },
   "devDependencies": {
-    "hono": "^3.7.0",
+    "hono": "^4.5.8",
     "tsdx": "^0.14.1",
     "tslib": "^2.6.1",
     "typescript": "^3.9.10"
@@ -54,6 +54,6 @@
   "peerDependencies": {
     "class-validator": "0.14.0",
     "class-transformer": "^0.5.1",
-    "hono": "^3.7.0"
+    "hono": "^4.5.8"
   }
 }
